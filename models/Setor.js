@@ -8,4 +8,4 @@ const Setor = new Schema({
   }
 });
 
-mongoose.model("setores", Setor);
+module.exports = mongoose.model("setores", Setor);

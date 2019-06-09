@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 require("../models/Setor");
 const Setor = mongoose.model("setores");
 
@@ -20,7 +21,11 @@ module.exports = {
   novoSetor(req, res) {
     var erros = [];
 
-    if (!req.body.nome == undefined || req.body.nome == null) {
+    if (
+      !req.body.nome ||
+      typeof req.body.nome == undefined ||
+      req.body.nome == null
+    ) {
       erros.push({ texto: "Nome do Setor não pode está vazio." });
     }
 
@@ -31,23 +36,45 @@ module.exports = {
     if (erros.length > 0) {
       return res.render("admin/addsetor", { erros: erros });
     } else {
-      const novoSetor = {
-        nome: req.body.nome
-      };
-
-      new Setor(novoSetor)
-        .save()
-        .then(() => {
-          req.flash("success_msg", "Setor adicionado com sucesso!");
-          return res.redirect("/setor");
-        })
-        .catch(err => {
+      Setor.findOne({ nome: req.body.nome }).then(setor => {
+        if (setor) {
           req.flash(
             "error_msg",
-            "Houve um erro ao cadastrar setor. Tente novamente."
+            "Já existe um setor cadastrado com esse nome."
           );
-          return res.redirect("/setor");
-        });
+          return res.redirect("/setor/add");
+        } else {
+          const novoSetor = {
+            nome: req.body.nome
+          };
+
+          new Setor(novoSetor)
+            .save()
+            .then(() => {
+              req.flash("success_msg", "Setor cadastrado com sucesso!");
+              return res.redirect("/setor");
+            })
+            .catch(err => {
+              req.flash(
+                "error_msg",
+                "Houve um erro ao cadastrar setor. Tente novamente."
+              );
+              return res.redirect("/setor");
+            });
+        }
+      });
     }
+  },
+
+  deletar(req, res) {
+    Setor.remove({ _id: req.params.id })
+      .then(() => {
+        req.flash("success_msg", "Setor deletado com sucesso.");
+        return res.redirect("/setor");
+      })
+      .catch(err => {
+        req.flash("error_msg", "Houve um erro ao deletar setor.");
+        return res.redirect("/setor");
+      });
   }
 };
