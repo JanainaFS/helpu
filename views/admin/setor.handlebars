@@ -1,0 +1,23 @@
+<h2> Lista de Setores: </h2>
+<hr>
+<a href="/admin/setor/add"><button class="btn btn-success"> Novo setor </button></a>
+
+
+{{#each setores}}
+
+<div class="card mt-4">
+  <div class="card-body">
+    <h4>{{nome}}</h4>
+    <br>
+    <a href="/admin/setor/edit/{{_id}}"><button class="btn btn-success mt-2"> Editar setor</button></a>
+
+    <form action="/admin/setor/deletar" method="POST">
+      <input type="hidden" name="id" value="{{_id}}">
+      <button type="submit" class="btn btn-danger mt-2"> Deletar categoria </button>
+    </form>
+  </div>
+</div>
+
+{{else}}
+<h4 class="mt-4"> Nenhuma categoria encontrada.</h4>
+{{/each}}
