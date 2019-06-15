@@ -18,12 +18,10 @@ const Usuario = new Schema({
     {
       colab: {
         type: Boolean,
-        required: true,
         default: false
       },
       sup: {
         type: Boolean,
-        required: true,
         default: false
       }
     }
