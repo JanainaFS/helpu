@@ -7,5 +7,6 @@ const IndexController = require("../controllers/IndexController");
 
 //Rotas
 router.get("/", IndexController.index);
+router.get("/login", IndexController.login);
 
 module.exports = router;
