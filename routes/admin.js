@@ -5,9 +5,10 @@ const router = express.Router();
 //Controller Admin
 const AdminController = require("../controllers/AdminController");
 
-router.get("/", AdminController.setor);
-router.get("/add", AdminController.addSetor);
-router.post("/novo", AdminController.novoSetor);
-router.get("/deletar/:id", AdminController.deletar);
+router.get("/", AdminController.index);
+router.get("/setor", AdminController.setor);
+router.get("/setor/add", AdminController.addSetor);
+router.post("/setor/novo", AdminController.novoSetor);
+router.get("/setor/deletar/:id", AdminController.deletar);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 <h2> Lista de Setores: </h2>
 <hr>
-<a href="/setor/add"><button class="btn btn-success"> Novo setor </button></a>
+<a href="/admin/setor/add"><button class="btn btn-success"> Novo setor </button></a>
 
 
 {{#each setores}}
@@ -9,9 +9,9 @@
   <div class="card-body">
     <h4>{{nome}}</h4>
     <br>
-    <a href="/setor/edit/{{_id}}"><button class="btn btn-success mt-2"> Editar setor</button></a>
+    <a href="/admin/setor/edit/{{_id}}"><button class="btn btn-success mt-2"> Editar setor</button></a>
 
-    <a href="/setor/deletar/{{_id}}"><button type="submit" class="btn btn-danger mt-2"> Deletar setor </button></a>
+    <a href="/admin/setor/deletar/{{_id}}"><button type="submit" class="btn btn-danger mt-2"> Deletar setor </button></a>
 
   </div>
 </div>

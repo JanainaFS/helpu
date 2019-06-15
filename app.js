@@ -59,7 +59,7 @@ app.use((req, res, next) => {
 
 //Rotas
 app.use("/", require("./routes/index"));
-app.use("/setor", require("./routes/admin"));
+app.use("/admin", require("./routes/admin"));
 
 const PORT = 8082;
 app.listen(PORT, () => {
