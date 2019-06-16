@@ -9,5 +9,6 @@ router.get("/indexC", ColabController.index);
 router.post("/cadastrar/add", ColabController.cadastrarColab);
 //rota de exibir chamada cadastrada
 router.get("/chamada/add", ColabController.addChamada);
+router.post("/chamada/nova", ColabController.novaChamada);
 
 module.exports = router;
