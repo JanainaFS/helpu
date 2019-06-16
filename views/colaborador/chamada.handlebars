@@ -1,21 +1,28 @@
 <h2> Chamada. </h2>
-
-{{#each chamadas}}
-
+<hr>
 <div class="card mt-4">
   <div class="card-body">
-    <h4>{{titulo}}</h4><br>
-    <small> Status: {{status}} </small> <br>
-    <small>Data de criação: {{data}}</small> <br>
 
-    <a href="/colab/chamada/{{_id}}"> <button type="submit" class="btn btn-success mt-2"> Ver chamada </button></a>
+    <h3>Título:</h3>
+    <h4> {{titulo}} </h4> <br>
+    <h3> Descrição: </h3> <br>
+    <textarea> {{descricao}} </textarea> <br>
+    <h3> Setor: </h3>
+    <h4> {{setor}} </h4> <br>
+    <h3> Status: </h3>
+    <h4> {{status}} </h4> <br>
 
-    <a href="/colab/chamada/deletar/{{_id}}"><button type="submit" class="btn btn-danger mt-2"> Deletar chamada
-      </button></a>
+    <hr>
+
+    <h3> Situação: </h3>
+    <h4> {{situacao}} </h4> <br>
+
+    {{#if situacao == "Pendente"}}
+    <h3> Comentário </h3>
+    <h4> {{comentario}} </h4> <br>
+    {{/if}}
+
+    <small>Data de criação: {{data}} </small> <br>
 
   </div>
 </div>
-
-{{else}}
-<h4 class="mt-4"> Nenhuma chamada cadastrada.</h4>
-{{/each}}
