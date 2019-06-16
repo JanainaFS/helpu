@@ -85,5 +85,16 @@ module.exports = {
           return res.redirect("/colab/indexC");
         });
     }
+  },
+  deletar(req, res) {
+    Chamada.remove({ _id: req.params.id })
+      .then(() => {
+        req.flash("success_msg", "Chamada deletada com sucesso!");
+        return res.redirect("/colab/indexC");
+      })
+      .catch(err => {
+        req.flash("error_msg", "Houve um erro ao deletar chamada.");
+        return res.redirect("/colab/indexC");
+      });
   }
 };
