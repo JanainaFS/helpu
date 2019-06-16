@@ -15,12 +15,10 @@ const Chamada = new Schema({
     required: true
   },
   situacao: {
-    type: String,
-    required: true
+    type: String
   },
   comentario: {
-    type: String,
-    required: true
+    type: String
   },
   data: {
     type: Date,
