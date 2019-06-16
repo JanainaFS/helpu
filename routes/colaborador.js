@@ -3,9 +3,11 @@ const express = require("express");
 const router = express.Router();
 
 //Controller Colab
-const AdminController = require("../controllers/ColabController");
+const ColabController = require("../controllers/ColabController");
 
-router.get("/indexC", AdminController.index);
-router.post("/cadastrar/add", AdminController.cadastrarColab);
+router.get("/indexC", ColabController.index);
+router.post("/cadastrar/add", ColabController.cadastrarColab);
+//rota de exibir chamada cadastrada
+router.get("/chamada/add", ColabController.addChamada);
 
 module.exports = router;
