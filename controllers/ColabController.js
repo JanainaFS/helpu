@@ -19,6 +19,7 @@ module.exports = {
       });
   },
   cadastrarColab(req, res) {},
+  chamada(req, res) {},
   addChamada(req, res) {
     Setor.find()
       .sort({ nome: "asc" })
