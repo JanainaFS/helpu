@@ -4,28 +4,26 @@
   <div class="card-body">
 
     <h3>Título:</h3>
-    <h4> {{titulo}} </h4> <br>
+    <h4> {{chamada.titulo}} </h4> <br>
     <h3> Descrição: </h3> <br>
-    <textarea> {{descricao}} </textarea> <br>
+    <textarea> {{chamada.descricao}} </textarea> <br>
     <h3> Setor: </h3>
-    <h4> {{setor}} </h4> <br>
+    <h4> {{chamada.setor}} </h4> <br>
     <h3> Status: </h3>
-    <h4> {{status}} </h4> <br>
+    <h4> {{chamada.status}} </h4> <br>
 
     <hr>
 
     <i class="fas fa-check-circle"></i>
     <h3> Situação: </h3>
-    <h4> {{situacao}} </h4> <br>
-
-    {{#if situacao == "Pendente"}}
+    <h4> {{chamada.situacao}} </h4> <br>
 
     <i class="fas fa-edit"></i>
     <h3> Comentário </h3>
-    <h4> {{comentario}} </h4> <br>
-    {{/if}}
+    <h4> {{chamada.comentario}} </h4> <br>
 
-    <small>Data de criação: {{data}} </small> <br>
+
+    <small>Data de criação: {{chamada.data}} </small> <br>
 
   </div>
 </div>

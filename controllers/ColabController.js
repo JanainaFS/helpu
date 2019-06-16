@@ -14,12 +14,31 @@ module.exports = {
         return res.render("colaborador/index", { chamadas: chamadas });
       })
       .catch(err => {
-        req.flash("error_msg", "Houve um erro ao tentar carregar formulário.");
+        req.flash("error_msg", "Houve um erro ao tentar carregar chamadas.");
         return res.redirect("/colab/indexC");
       });
   },
   cadastrarColab(req, res) {},
-  chamada(req, res) {},
+  chamada(req, res) {
+    Chamada.findOne({ _id: req.params.id })
+      .then(chamada => {
+        Setor.find()
+          .then(setores => {
+            return res.render("colaborador/chamada", {
+              setores: setores,
+              chamada: chamada
+            });
+          })
+          .catch(err => {
+            req.flash("error_msg", "Houve um erro ao tentar carregar setores.");
+            return res.redirect("/colab/indexC");
+          });
+      })
+      .catch(err => {
+        req.flash("error_msg", "Houve um erro ao tentar carregar chamada.");
+        return res.redirect("/colab/indexC");
+      });
+  },
   addChamada(req, res) {
     Setor.find()
       .sort({ nome: "asc" })
