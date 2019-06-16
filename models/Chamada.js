@@ -14,6 +14,10 @@ const Chamada = new Schema({
     type: String,
     required: true
   },
+  setor: {
+    nome: String,
+    required: true
+  },
   situacao: {
     type: String
   },
