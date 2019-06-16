@@ -6,5 +6,8 @@ module.exports = {
   },
   login(req, res) {
     return res.render("login");
+  },
+  cadastrar(req, res) {
+    return res.render("cadastroColab");
   }
 };
