@@ -19,23 +19,15 @@ module.exports = {
       });
   },
   cadastrarColab(req, res) {},
-  chamada(req, res) {
+  verChamada(req, res) {
     Chamada.findOne({ _id: req.params.id })
       .then(chamada => {
-        Setor.find()
-          .then(setores => {
-            return res.render("colaborador/chamada", {
-              setores: setores,
-              chamada: chamada
-            });
-          })
-          .catch(err => {
-            req.flash("error_msg", "Houve um erro ao tentar carregar setores.");
-            return res.redirect("/colab/indexC");
-          });
+        return res.render("colaborador/chamada", {
+          chamada: chamada
+        });
       })
       .catch(err => {
-        req.flash("error_msg", "Houve um erro ao tentar carregar chamada.");
+        req.flash("error_msg", "Houve um erro ao listar chamadas.");
         return res.redirect("/colab/indexC");
       });
   },
