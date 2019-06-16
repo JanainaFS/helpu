@@ -15,27 +15,28 @@
 
           <div class="form-group">
             <i class="far fa-address-card"></i>
-            <label for="nome"> Titulo: </label>
+            <label for="titulo"> Titulo: </label>
             <input class="form-control" type="text" name="titulo">
           </div>
 
           <div class="form-group">
-            <i class="fas fa-at"></i>
-            <label for="nome"> Descrição: </label>
+            <i class="fas fa-file-alt"></i>
+            <label for="descricao"> Descrição: </label>
             <textarea class="form-control" name="descricao"></textarea>
           </div>
 
           <div class="form-group">
-            <i class="fas fa-lock"></i>
-            <label for="nome"> Status: </label>
+            <i class="fas fa-check-circle"></i>
+            <label for="status"> Status: </label>
             <select name="status" class="form-control">
-              <option value="{{_id}}"> Alta </option>
-              <option value="{{_id}}"> Média </option>
-              <option value="{{_id}}"> Baixa </option>
+              <option value="Alta"> Alta </option>
+              <option value="Media"> Média </option>
+              <option value="Baixa"> Baixa </option>
             </select>
           </div>
 
           <div class="form-group">
+            <i class="fas fa-clipboard-list"></i>
             <label for="setor"> Setor: </label>
             <select name="setor" class="form-control">
               {{#each setores}}

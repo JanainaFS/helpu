@@ -15,7 +15,7 @@ const Chamada = new Schema({
     required: true
   },
   setor: {
-    nome: String,
+    type: String,
     required: true
   },
   situacao: {
@@ -30,4 +30,4 @@ const Chamada = new Schema({
   }
 });
 
-mongoose.model("chamadas", Chamada);
+module.exports = mongoose.model("chamadas", Chamada);

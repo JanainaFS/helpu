@@ -33,7 +33,7 @@ module.exports = {
       erros.push({ texto: "Nome do Setor não pode está vazio." });
     }
 
-    if (req.body.nome.length < 4) {
+    if (req.body.nome.length < 5) {
       erros.push({ texto: "Nome do setor é muito pequeno." });
     }
 
