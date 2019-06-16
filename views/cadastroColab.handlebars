@@ -2,12 +2,17 @@
 <div class="alert alert-danger"> {{texto}} </div>
 {{else}}
 {{/each}}
+
 <div class="contener">
+  <div class="text-center">
+    <h4> Cadastre-se </h4>
+  </div>
+  <hr>
   <div class="row justify-content-center">
-    <h3> Cadastro </h3>
     <div class="card" style="width: 18rem;">
       <div class="card-body">
-        <form action="/login/cadastrar" method="POST">
+        <form action="/cadastrar/add" method="POST">
+
           <div class="form-group">
             <i class="far fa-address-card"></i>
             <label for="nome"> Nome: </label>
@@ -27,6 +32,10 @@
           </div>
 
           <input type="hidden" value="true" name="tipo.colab.type">
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-success"> Cadastrar </button>
+          </div>
 
         </form>
       </div>
