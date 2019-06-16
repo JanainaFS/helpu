@@ -9,6 +9,7 @@ module.exports = {
 
   setor(req, res) {
     Setor.find()
+      .sort({ nome: "asc" })
       .then(setores => {
         return res.render("admin/setor", { setores: setores });
       })

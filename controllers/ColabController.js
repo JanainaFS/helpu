@@ -9,6 +9,7 @@ const Chamada = mongoose.model("chamadas");
 module.exports = {
   index(req, res) {
     Chamada.find()
+      .sort({ data: "asc" })
       .then(chamadas => {
         return res.render("colaborador/index", { chamadas: chamadas });
       })
@@ -20,6 +21,7 @@ module.exports = {
   cadastrarColab(req, res) {},
   addChamada(req, res) {
     Setor.find()
+      .sort({ nome: "asc" })
       .then(setores => {
         return res.render("colaborador/cadastroChamada", { setores: setores });
       })
