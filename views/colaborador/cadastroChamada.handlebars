@@ -1,0 +1,56 @@
+{{#each erros}}
+<div class="alert alert-danger"> {{texto}} </div>
+{{else}}
+{{/each}}
+
+<div class="contener">
+  <div class="text-center">
+    <h4> Cadaste uma nova chamada. </h4>
+  </div>
+  <hr>
+  <div class="row justify-content-center">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <form action="" method="POST">
+
+          <div class="form-group">
+            <i class="far fa-address-card"></i>
+            <label for="nome"> Titulo: </label>
+            <input class="form-control" type="text" name="titulo">
+          </div>
+
+          <div class="form-group">
+            <i class="fas fa-at"></i>
+            <label for="nome"> Descrição: </label>
+            <textarea class="form-control" name="descricao"></textarea>
+          </div>
+
+          <div class="form-group">
+            <i class="fas fa-lock"></i>
+            <label for="nome"> Status: </label>
+            <select name="status" class="form-control">
+              <option value="{{_id}}"> Alta </option>
+              <option value="{{_id}}"> Média </option>
+              <option value="{{_id}}"> Baixa </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select name="setor" class="form-control">
+              {{#each setores}}
+              <option value="{{_id}}"> {{nome}}</option>
+              {{else}}
+              <option value="0"> Nenhum setor resgistrado </option>
+              {{/each}}
+            </select>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-success"> Cadastrar </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
