@@ -6,5 +6,6 @@ module.exports = {
   index(req, res) {
     return res.render("colaborador/index");
   },
-  cadastrarColab(req, res) {}
+  cadastrarColab(req, res) {},
+  addChamada(req, res) {}
 };
