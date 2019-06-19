@@ -5,6 +5,7 @@ require("../models/Setor");
 const Setor = mongoose.model("setores");
 require("../models/Chamada");
 const Chamada = mongoose.model("chamadas");
+const bcrypt = require("bcryptjs");
 
 module.exports = {
   index(req, res) {
@@ -18,7 +19,96 @@ module.exports = {
         return res.redirect("/colab/indexC");
       });
   },
-  cadastrarColab(req, res) {},
+  cadastrarColab(req, res) {
+    var erros = [];
+
+    if (
+      !req.body.nome ||
+      typeof req.body.nome == undefined ||
+      req.body.nome == null
+    )
+      erros.push({ texto: "Nome inválido." });
+
+    if (
+      !req.body.email ||
+      typeof req.body.email == undefined ||
+      req.body.email == null
+    )
+      erros.push({ texto: "Email inválido." });
+
+    if (
+      !req.body.senha ||
+      typeof req.body.senha == undefined ||
+      req.body.senha == null
+    )
+      erros.push({ texto: "Senha inválida." });
+
+    if (req.body.senha.length < 8)
+      erros.push({
+        texto:
+          "Senha muito curta. Sua senha precisa ter no mínimo 8 caracteres."
+      });
+
+    if (req.body.senha != req.body.senha1)
+      erros.push({ texto: "As senhas não correspondem." });
+
+    if (erros.length > 0) {
+      res.render("cadastroColab", { erros: erros });
+    } else {
+      Usuario.findOne({ email: req.body.email })
+        .then(usuario => {
+          if (usuario) {
+            req.flash(
+              "error_msg",
+              "Já existe um usuário cadastrado com esse email."
+            );
+            res.redirect("/cadastrar");
+          } else {
+            const novoUsuario = new Usuario({
+              nome: req.body.nome,
+              email: req.body.email,
+              senha: req.body.senha,
+              tipo: [
+                {
+                  colab: true
+                }
+              ]
+            });
+
+            bcrypt.genSalt(10, (erro, salt) => {
+              bcrypt.hash(novoUsuario.senha, salt, (erro, hash) => {
+                if (erro) {
+                  req.flash(
+                    "error_msg",
+                    "Houve um erro durante o salvamento do usuário."
+                  );
+                  res.redirect("/cadastrar");
+                }
+
+                novoUsuario.senha = hash;
+
+                novoUsuario
+                  .save()
+                  .then(() => {
+                    req.flash("success_msg", "Usuário cadastrado com sucesso!");
+                    res.redirect("/");
+                  })
+                  .catch(err => {
+                    req.flash("error_msg", "Houve um erro ao criar o usuário.");
+                    res.redirect("/cadastrar");
+                  });
+              });
+            });
+          }
+        })
+        .catch(err => {
+          console.log(err);
+          req.flash("error_msg", "Houve um erro interno.");
+          res.redirect("/");
+        });
+    }
+  },
+
   verChamada(req, res) {
     Chamada.findOne({ _id: req.params.id })
       .then(chamada => {
