@@ -8,7 +8,7 @@ const IndexController = require("../controllers/IndexController");
 //Rotas Públicas
 router.get("/", IndexController.index);
 router.get("/login", IndexController.login);
-router.post("/login", IndexController.logar);
+router.post("/logar", IndexController.logar);
 router.get("/cadastrar", IndexController.cadastrar);
 
 module.exports = router;

@@ -8,8 +8,11 @@ const path = require("path");
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
+require("./config/auth")(passport);
 
 //Config;
+
+//Sessão
 app.use(
   session({
     secret: "curiosidade",
