@@ -10,7 +10,6 @@ router.get("/indexC", ColabController.index);
 
 //Rotas de Colaborador
 router.post("/cadastrar/add", ColabController.cadastrarColab);
-router.get("/logout/", ColabController.logout);
 
 //Rotas de Chamadas
 router.get("/chamada/add", ColabController.addChamada);

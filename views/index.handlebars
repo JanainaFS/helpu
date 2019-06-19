@@ -1,12 +1,33 @@
+{{#if user}}
+
 {{#if user.eAdmin}}
 <div class="jumbotron">
   <h1 class="display-4"> Bem-vindo ao Help-U!</h1>
-  <p class="lead"> O Help-U é um sistema de chamados que vai ajudar você a se comunicar quando estiver com qualquer
-    enventual probleminha no seu trabalho.</p>
   <hr class="my-4">
-  <p>Venha fazer parte da nossa comunidade.</p>
+
+  <div class="card" style="width: 18rem;">
+    <div class="text-center">
+      <h4> Usuários Suportes </h4>
+    </div>
+    <div class="card-body">
+      <a href="/admin/suporte"> <button type="submit" class="btn btn-success"> Cadastrar Suporte </button> </a>
+      <a href="/admin/suporte"> <button type="submit" class="btn btn-success"> Ver Todos </button> </a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <div class="text-center">
+      <h4> Usuários Administradores </h4>
+    </div>
+    <div class="card-body">
+      <a href="/admin/suporte"> <button type="submit" class="btn btn-success"> Cadastrar Suporte </button> </a>
+      <a href="/admin/suporte"> <button type="submit" class="btn btn-success"> Ver Todos </button> </a>
+    </div>
+  </div>
+
 </div>
 {{/if}}
+
 {{#if user.eSup}}
 <div class="jumbotron">
   <h1 class="display-4"> Bem-vindo ao Help-U!</h1>
@@ -16,6 +37,7 @@
   <p>Venha fazer parte da nossa comunidade.</p>
 </div>
 {{/if}}
+
 {{#if user.eColab}}
 <div class="jumbotron">
   <h1 class="display-4"> Bem-vindo ao Help-U!</h1>
@@ -24,6 +46,8 @@
   <hr class="my-4">
   <p>Venha fazer parte da nossa comunidade.</p>
 </div>
+{{/if}}
+
 {{else}}
 <div class="jumbotron">
   <h1 class="display-4"> Bem-vindo ao Help-U!</h1>

@@ -9,6 +9,7 @@ const IndexController = require("../controllers/IndexController");
 router.get("/", IndexController.index);
 router.get("/login", IndexController.login);
 router.post("/logar", IndexController.logar);
+router.get("/logout", IndexController.logout);
 router.get("/cadastrar", IndexController.cadastrar);
 
 module.exports = router;

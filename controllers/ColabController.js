@@ -117,12 +117,6 @@ module.exports = {
       });
   },
 
-  logout(req, res) {
-    req.logout();
-    req.flash("success_msg", "Deslogado com sucesso!");
-    res.redirect("/login");
-  },
-
   verChamada(req, res) {
     Chamada.findOne({ _id: req.params.id })
       .then(chamada => {

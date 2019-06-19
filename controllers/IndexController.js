@@ -14,6 +14,11 @@ module.exports = {
       failureFlash: true
     })(req, res, next);
   },
+  logout(req, res) {
+    req.logout();
+    req.flash("success_msg", "Deslogado com sucesso!");
+    res.redirect("/login");
+  },
   cadastrar(req, res) {
     return res.render("cadastroColab");
   }
