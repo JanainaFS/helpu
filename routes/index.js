@@ -5,9 +5,10 @@ const router = express.Router();
 //Controller da Index
 const IndexController = require("../controllers/IndexController");
 
-//Rotas
+//Rotas Públicas
 router.get("/", IndexController.index);
 router.get("/login", IndexController.login);
-router.get("/cadastrar", IndexController.cadastrar)
+router.post("/login", IndexController.logar);
+router.get("/cadastrar", IndexController.cadastrar);
 
 module.exports = router;
