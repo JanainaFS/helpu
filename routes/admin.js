@@ -15,7 +15,7 @@ router.get("/setor/deletar/:id", AdminController.deletar);
 //Rotas de Usuário Suporte
 router.get("/suporte", AdminController.userSuporte);
 router.post("/cadastrarSup/add", AdminController.CadUserSuporte);
-router.get("/suporte/:id", AdminController.verSuporte);
+//router.get("/suporte/:id", AdminController.verSuporte);
 router.get("/suporte/deletar/:id", AdminController.deletarSuporte);
 
 module.exports = router;
