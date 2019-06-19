@@ -109,6 +109,18 @@ module.exports = {
     }
   },
 
+  deletarUser(req, res) {
+    Usuario.remove({ _id: req.params.id })
+      .then(() => {
+        req.flash("success_msg", "Chamada deletada com sucesso!");
+        return res.redirect("/");
+      })
+      .catch(err => {
+        req.flash("error_msg", "Houve um erro ao deletar chamada.");
+        return res.redirect("/");
+      });
+  },
+
   verChamada(req, res) {
     Chamada.findOne({ _id: req.params.id })
       .then(chamada => {

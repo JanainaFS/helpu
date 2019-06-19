@@ -17,4 +17,7 @@ router.get("/chamada/:id", ColabController.verChamada);
 router.post("/chamada/nova", ColabController.novaChamada);
 router.get("/chamada/deletar/:id", ColabController.deletar);
 
+//Rota de deletar usuário para teste
+router.get("/deletarUser/:id", ColabController.deletarUser);
+
 module.exports = router;
