@@ -1,6 +1,6 @@
 module.exports = {
-  eAdmin: function(req, res, next) {
-    if (req.isAuthenticated() && req.user.tipo.colab == true) {
+  eColab: function(req, res, next) {
+    if (req.isAuthenticated() && req.user.eColab == true) {
       return next();
     }
 

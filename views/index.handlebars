@@ -1,3 +1,30 @@
+{{#if user.eAdmin}}
+<div class="jumbotron">
+  <h1 class="display-4"> Bem-vindo ao Help-U!</h1>
+  <p class="lead"> O Help-U é um sistema de chamados que vai ajudar você a se comunicar quando estiver com qualquer
+    enventual probleminha no seu trabalho.</p>
+  <hr class="my-4">
+  <p>Venha fazer parte da nossa comunidade.</p>
+</div>
+
+{{#if user.eSup}}
+<div class="jumbotron">
+  <h1 class="display-4"> Bem-vindo ao Help-U!</h1>
+  <p class="lead"> O Help-U é um sistema de chamados que vai ajudar você a se comunicar quando estiver com qualquer
+    enventual probleminha no seu trabalho.</p>
+  <hr class="my-4">
+  <p>Venha fazer parte da nossa comunidade.</p>
+</div>
+
+{{#if user.eColab}}
+<div class="jumbotron">
+  <h1 class="display-4"> Bem-vindo ao Help-U!</h1>
+  <p class="lead"> O Help-U é um sistema de chamados que vai ajudar você a se comunicar quando estiver com qualquer
+    enventual probleminha no seu trabalho.</p>
+  <hr class="my-4">
+  <p>Venha fazer parte da nossa comunidade.</p>
+</div>
+{{else}}
 <div class="jumbotron">
   <h1 class="display-4"> Bem-vindo ao Help-U!</h1>
   <p class="lead"> O Help-U é um sistema de chamados que vai ajudar você a se comunicar quando estiver com qualquer
@@ -6,3 +33,4 @@
   <p>Venha fazer parte da nossa comunidade.</p>
   <a class="btn btn-success btn-lg" href="/cadastrar" role="button"> Cadastre-se </a>
 </div>
+{{/if}}

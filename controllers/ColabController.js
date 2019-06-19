@@ -68,11 +68,7 @@ module.exports = {
               nome: req.body.nome,
               email: req.body.email,
               senha: req.body.senha,
-              tipo: [
-                {
-                  colab: true
-                }
-              ]
+              eColab: true
             });
 
             bcrypt.genSalt(10, (erro, salt) => {

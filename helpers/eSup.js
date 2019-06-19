@@ -1,6 +1,6 @@
 module.exports = {
-  eAdmin: function(req, res, next) {
-    if (req.isAuthenticated() && req.user.tipo.sup == true) {
+  eSup: function(req, res, next) {
+    if (req.isAuthenticated() && req.user.eSup == true) {
       return next();
     }
 

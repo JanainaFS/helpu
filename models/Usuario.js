@@ -14,18 +14,14 @@ const Usuario = new Schema({
     type: String,
     required: true
   },
-  tipo: [
-    {
-      colab: {
-        type: Boolean,
-        default: false
-      },
-      sup: {
-        type: Boolean,
-        default: false
-      }
-    }
-  ],
+  eColab: {
+    type: Boolean,
+    default: false
+  },
+  eSup: {
+    type: Boolean,
+    default: false
+  },
   eAdmin: {
     type: Boolean,
     default: false
