@@ -1,10 +1,18 @@
-//Módulos
+/* Módulos */
+
+/* Framework para Node.js. MVC, Rotas */
 const express = require("express");
-const handlebars = require("express-handlebars");
-const bodyParser = require("body-parser");
 const app = express();
+/* Renderização de Páginas */
+const handlebars = require("express-handlebars");
+/* Manipular os dados da requisição */
+const bodyParser = require("body-parser");
+/* Biblioteca do Node.js baseada em esquemas para modelar os dados da sua aplicação. */
 const mongoose = require("mongoose");
+/* Módulo do Node.js para trabalhar com caminhos de arquivos e diretórios. */
 const path = require("path");
+
+/* Middleware */
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
