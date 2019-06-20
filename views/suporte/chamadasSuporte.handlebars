@@ -1,8 +1,11 @@
 <h2> Chamadas Disponíveis! </h2>
 <hr>
 
-{{#each chamadas}}
 {{#if situacao}}
+
+{{else}}
+
+{{#each chamadas}}
 
 <div class="card mt-4">
   <div class="card-body">
@@ -16,5 +19,8 @@
 </div>
 
 {{else}}
+
 <h4 class="mt-4"> Nenhuma chamada cadastrada.</h4>
+
+{{/each}}
 {{/if}}
