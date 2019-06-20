@@ -14,8 +14,14 @@ router.get("/setor/deletar/:id", AdminController.deletar);
 
 //Rotas de Usuário Suporte
 router.get("/suporte", AdminController.userSuporte);
-router.post("/cadastrarSup/add", AdminController.CadUserSuporte);
+router.post("/cadastrarSup/add", AdminController.cadUserSuporte);
 router.get("/suporte/all", AdminController.suporteAll);
 router.get("/suporte/deletar/:id", AdminController.deletarSuporte);
+
+//Rotas de Usuário Administrador
+router.get("/novo", AdminController.userAdmin);
+router.post("/cadastrarAdmin/add", AdminController.cadUserAdmin);
+router.get("/all", AdminController.adminAll);
+router.get("/deletar/:id", AdminController.deletarAdmin);
 
 module.exports = router;

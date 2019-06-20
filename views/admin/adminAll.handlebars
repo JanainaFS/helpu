@@ -1,7 +1,7 @@
-<h2> Lista de Usuários Suporte: </h2>
+<h2> Lista de Usuários Administradores: </h2>
 <hr>
 
-{{#each suportes}}
+{{#each admins}}
 
 <div class="card mt-4">
   <div class="card-body">
@@ -9,7 +9,7 @@
     <br>
 
     <a href="#"><button class="btn btn-success mt-2"> Editar</button></a>
-    <a href="/admin/suporte/deletar/{{_id}}"><button type="submit" class="btn btn-danger mt-2"> Deletar </button></a>
+    <a href="/admin/deletar/{{_id}}"><button type="submit" class="btn btn-danger mt-2"> Deletar </button></a>
 
   </div>
 </div>
