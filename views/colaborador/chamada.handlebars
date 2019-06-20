@@ -28,14 +28,31 @@
 
     <hr>
 
-    <i class="fas fa-check-circle"></i>
-    <label> Situação: </label>
-    <h4> {{chamada.situacao}} </h4> <br>
+    {{#if chamada.resolvida}}
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="true" id="resolvida" name="resolvida" checked disabled>
+      <i class="fas fa-check-circle"></i>
+      <label class="form-check-label" for="resolvida">
+        Resolvida
+      </label>
+    </div>
+    {{/if}}
+
+    {{#if chamada.pendente}}
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="true" id="pendente" name="pendente" checked disabled>
+      <i class="fas fa-ban"></i>
+      <label class="form-check-label" for="pendente">
+        Pendente
+      </label>
+    </div>
+
+    <br>
 
     <i class="fas fa-edit"></i>
     <label> Comentário: </label>
     <h4> {{chamada.comentario}} </h4> <br>
-
+    {{/if}}
 
     <small>Data de criação: {{chamada.data}} </small> <br>
 
