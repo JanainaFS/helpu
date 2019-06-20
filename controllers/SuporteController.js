@@ -30,12 +30,12 @@ module.exports = {
   finalizar(req, res) {
     var erros = [];
 
-    if (req.body.resolvida == true && req.body.pendente == true) {
+    if (req.body.resolvida == "true" && req.body.pendente == "true") {
       erros.push({ texto: "Você deve marcar apenas 1 check-box." });
     }
 
     if (
-      req.body.pendente == true &&
+      req.body.pendente == "true" &&
       (!req.body.comentario ||
         typeof req.body.comentario == undefined ||
         req.body.comentario == null)
@@ -44,17 +44,19 @@ module.exports = {
     }
 
     if (erros.length > 0) {
-      return res.render("suporte/verChamadaSuporte", { erros: erros });
+      return res.render("suporte/verChamadaSuporte", {
+        erros: erros,
+        chamada: { _id: req.params.id }
+      });
     } else {
       Chamada.findOne({ _id: req.params.id })
         .then(chamada => {
-          situacao = true;
-          comentario = req.body.comentario;
-          resolvida = req.body.resolvida;
-          pendente = req.body.pendente;
+          chamada.situacao = true;
+          chamada.comentario = req.body.comentario;
+          chamada.resolvida = req.body.resolvida;
+          chamada.pendente = req.body.pendente;
 
-          chamada
-            .save()
+          Chamada.updateOne({ _id: req.params.id }, chamada)
             .then(() => {
               req.flash("success_msg", "Chamada finalizada com sucesso!");
               res.redirect("/suporte/chamadas");

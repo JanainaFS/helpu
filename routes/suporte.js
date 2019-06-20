@@ -9,9 +9,11 @@ const SuporteController = require("../controllers/SuporteController");
 //rota de listar todas as chamadas
 router.get("/chamadas", SuporteController.chamadas);
 //rota de exibir 1 chamada
-router.get("/chamadas/:id", SuporteController.verChamada);
-//Resolver chamada
 router.post("/chamadas/finalizar/:id", SuporteController.finalizar);
+router.get("/chamadas/:id", SuporteController.verChamada);
+
+//Resolver chamada
+
 //Editar Chamada _ Solução
 //router.post("/chamadas/editar/:id", SuporteController.editarChamada);
 
