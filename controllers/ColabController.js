@@ -125,7 +125,7 @@ module.exports = {
         });
       })
       .catch(err => {
-        req.flash("error_msg", "Houve um erro ao listar chamadas.");
+        req.flash("error_msg", "Houve um erro ao listar chamada.");
         return res.redirect("/colab/indexC");
       });
   },

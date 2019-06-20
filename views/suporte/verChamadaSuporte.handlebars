@@ -1,0 +1,64 @@
+<div class="text-center">
+  <h2> {{chamada.titulo}} </h2>
+</div>
+
+<hr>
+<div class="card mt-4">
+  <div class="card-body">
+    <form action="" method="POST">
+
+      <div class="form-group">
+        <h6>Título:</h6>
+        <p> {{chamada.titulo}} </p>
+      </div>
+
+      <div class="form-group">
+        <h6> Descrição: </h6>
+        <textarea class="form-control" disabled> {{chamada.descricao}} </textarea>
+      </div>
+
+      <div class="form-group">
+        <h6> Setor: </h6>
+        <p> {{chamada.setor}} </p>
+      </div>
+
+      <div class="form-group">
+        <h6> Status: </h6>
+        <p> {{chamada.status}} </p>
+      </div>
+
+      <hr>
+
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="true" id="resolvida" name="resolvida">
+        <i class="fas fa-check-circle"></i>
+        <label class="form-check-label" for="resolvida">
+          Resolvida
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="true" id="pendente" name="pendente">
+        <i class="fas fa-ban"></i>
+        <label class="form-check-label" for="pendente">
+          Pendente
+        </label>
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <i class="fas fa-file-alt"></i>
+        <label> Comentário: </label>
+        <textarea class="form-control" id="comentario" name="comentario"></textarea>
+      </div>
+
+      <small>Data de criação: {{chamada.data}} </small> <br>
+
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-success"> Finalizar </button>
+      </div>
+    </form>
+  </div>
+</div>
