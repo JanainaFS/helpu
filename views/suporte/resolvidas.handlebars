@@ -1,4 +1,4 @@
-<h2> Chamadas Disponíveis! </h2>
+<h2> Chamadas Resolvidas! </h2>
 <hr>
 
 {{#each chamadas}}
@@ -9,7 +9,8 @@
     <small> Status: {{status}} </small> <br>
     <small>Data de criação: {{data}}</small> <br>
 
-    <a href="/suporte/chamadas/{{_id}}"> <button type="submit" class="btn btn-success mt-2"> Ver chamada </button></a>
+    <a href="/suporte/chamadas/filtroChamada/{{_id}}"> <button type="submit" class="btn btn-success mt-2"> Ver chamada
+      </button></a>
 
   </div>
 </div>
