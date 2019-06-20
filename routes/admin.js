@@ -7,21 +7,21 @@ const { eAdmin } = require("../helpers/eAdmin");
 const AdminController = require("../controllers/AdminController");
 
 //Rotas de Setor
-router.get("/setor", AdminController.setor);
-router.get("/setor/add", AdminController.addSetor);
-router.post("/setor/novo", AdminController.novoSetor);
-router.get("/setor/deletar/:id", AdminController.deletar);
+router.get("/setor", eAdmin, AdminController.setor);
+router.get("/setor/add", eAdmin, AdminController.addSetor);
+router.post("/setor/novo", eAdmin, AdminController.novoSetor);
+router.get("/setor/deletar/:id", eAdmin, AdminController.deletar);
 
 //Rotas de Usuário Suporte
-router.get("/suporte", AdminController.userSuporte);
-router.post("/cadastrarSup/add", AdminController.cadUserSuporte);
-router.get("/suporte/all", AdminController.suporteAll);
-router.get("/suporte/deletar/:id", AdminController.deletarSuporte);
+router.get("/suporte", eAdmin, AdminController.userSuporte);
+router.post("/cadastrarSup/add", eAdmin, AdminController.cadUserSuporte);
+router.get("/suporte/all", eAdmin, AdminController.suporteAll);
+router.get("/suporte/deletar/:id", eAdmin, AdminController.deletarSuporte);
 
 //Rotas de Usuário Administrador
-router.get("/novo", AdminController.userAdmin);
-router.post("/cadastrarAdmin/add", AdminController.cadUserAdmin);
-router.get("/all", AdminController.adminAll);
-router.get("/deletar/:id", AdminController.deletarAdmin);
+router.get("/novo", eAdmin, AdminController.userAdmin);
+router.post("/cadastrarAdmin/add", eAdmin, AdminController.cadUserAdmin);
+router.get("/all", eAdmin, AdminController.adminAll);
+router.get("/deletar/:id", eAdmin, AdminController.deletarAdmin);
 
 module.exports = router;
