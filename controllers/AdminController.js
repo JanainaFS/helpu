@@ -182,5 +182,17 @@ module.exports = {
         req.flash("error_msg", "Houve um erro ao deletar usuário.");
         return res.redirect("/");
       });
+  },
+
+  suporteAll(req, res) {
+    Usuario.find({ eSup: true })
+      .sort({ nome: "asc" })
+      .then(suportes => {
+        return res.render("admin/suporteAll", { suportes: suportes });
+      })
+      .catch(err => {
+        req.flash("error_msg", "Houve um erro ao listar os setores.");
+        return res.redirect("/");
+      });
   }
 };

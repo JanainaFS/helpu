@@ -1,0 +1,19 @@
+<h2> Lista de Usuários Suporte: </h2>
+<hr>
+
+{{#each suportes}}
+
+<div class="card mt-4">
+  <div class="card-body">
+    <h4>{{nome}}</h4>
+    <br>
+
+    <a href="#"><button class="btn btn-success mt-2"> Editar</button></a>
+    <a href="/admin/suporte/deletar/{{_id}}"><button type="submit" class="btn btn-danger mt-2"> Deletar </button></a>
+
+  </div>
+</div>
+
+{{else}}
+<h4 class="mt-4"> Nenhum setor cadastrado.</h4>
+{{/each}}
