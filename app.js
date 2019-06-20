@@ -64,6 +64,7 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/index"));
 app.use("/admin", require("./routes/admin"));
 app.use("/colab", require("./routes/colaborador"));
+app.use("/suporte", require("./routes/suporte"));
 
 const PORT = 8082;
 app.listen(PORT, () => {
