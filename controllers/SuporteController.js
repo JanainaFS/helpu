@@ -25,5 +25,49 @@ module.exports = {
         req.flash("error_msg", "Houve um erro ao listar chamada.");
         return res.redirect("/suporte/chamadas");
       });
+  },
+
+  finalizar(req, res) {
+    var erros = [];
+
+    if (req.body.resolvida == true && req.body.pendente == true) {
+      erros.push({ texto: "Você deve marcar apenas 1 check-box." });
+    }
+
+    if (
+      req.body.pendente == true &&
+      (!req.body.comentario ||
+        typeof req.body.comentario == undefined ||
+        req.body.comentario == null)
+    ) {
+      erros.push({ texto: "Comentário não pode está vazio." });
+    }
+
+    if (erros.length > 0) {
+      return res.render("suporte/verChamadaSuporte", { erros: erros });
+    } else {
+      Chamada.findOne({ _id: req.params.id })
+        .then(chamada => {
+          situacao = true;
+          comentario = req.body.comentario;
+          resolvida = req.body.resolvida;
+          pendente = req.body.pendente;
+
+          chamada
+            .save()
+            .then(() => {
+              req.flash("success_msg", "Chamada finalizada com sucesso!");
+              res.redirect("/suporte/chamadas");
+            })
+            .catch(err => {
+              req.flash("error_msg", "Houve um erro ao finalizar chamada.");
+              res.redirect("/suporte/chamadas");
+            });
+        })
+        .catch(err => {
+          req.flash("error_msg", "Houve um erro interno. ");
+          res.redirect("/suporte/chamadas");
+        });
+    }
   }
 };

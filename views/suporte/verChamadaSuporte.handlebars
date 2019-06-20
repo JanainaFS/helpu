@@ -1,3 +1,8 @@
+{{#each erros}}
+<div class="alert alert-danger"> {{texto}} </div>
+{{else}}
+{{/each}}
+
 <div class="text-center">
   <h2> {{chamada.titulo}} </h2>
 </div>
@@ -5,7 +10,7 @@
 <hr>
 <div class="card mt-4">
   <div class="card-body">
-    <form action="" method="POST">
+    <form action="/suporte/chamadas/finalizar/{{_id}}" method="POST">
 
       <div class="form-group">
         <h6>Título:</h6>
@@ -28,7 +33,6 @@
       </div>
 
       <hr>
-
 
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="true" id="resolvida" name="resolvida">

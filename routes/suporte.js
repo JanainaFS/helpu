@@ -11,7 +11,7 @@ router.get("/chamadas", SuporteController.chamadas);
 //rota de exibir 1 chamada
 router.get("/chamadas/:id", SuporteController.verChamada);
 //Resolver chamada
-//router.post("/chamadas/finalizar/:id", SuporteController.finalizar);
+router.post("/chamadas/finalizar/:id", SuporteController.finalizar);
 //Editar Chamada _ Solução
 //router.post("/chamadas/editar/:id", SuporteController.editarChamada);
 
