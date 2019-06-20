@@ -19,7 +19,16 @@ const Chamada = new Schema({
     required: true
   },
   situacao: {
-    type: String
+    type: Boolean,
+    default: false
+  },
+  resolvida: {
+    type: Boolean,
+    default: false
+  },
+  pendente: {
+    type: Boolean,
+    default: false
   },
   comentario: {
     type: String
