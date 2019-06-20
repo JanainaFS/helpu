@@ -3,6 +3,8 @@ require("../models/Setor");
 const Setor = mongoose.model("setores");
 require("../models/Usuario");
 const Usuario = mongoose.model("usuarios");
+require("../models/Chamada");
+const Chamada = mongoose.model("chamadas");
 const bcrypt = require("bcryptjs");
 
 module.exports = {
@@ -192,6 +194,30 @@ module.exports = {
       })
       .catch(err => {
         req.flash("error_msg", "Houve um erro ao listar os usuários.");
+        return res.redirect("/");
+      });
+  },
+
+  resolvidas(req, res) {
+    Chamada.find({ resolvida: true })
+      .sort({ data: "asc" })
+      .then(chamadas => {
+        return res.render("suporte/resolvidas", { chamadas: chamadas });
+      })
+      .catch(err => {
+        req.flash("error_msg", "Houve um erro ao tentar carregar chamadas.");
+        return res.redirect("/");
+      });
+  },
+
+  pendentes(req, res) {
+    Chamada.find({ pendente: true })
+      .sort({ data: "asc" })
+      .then(chamadas => {
+        return res.render("suporte/pendentes", { chamadas: chamadas });
+      })
+      .catch(err => {
+        req.flash("error_msg", "Houve um erro ao tentar carregar chamadas.");
         return res.redirect("/");
       });
   },

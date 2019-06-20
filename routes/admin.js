@@ -17,6 +17,8 @@ router.get("/suporte", eAdmin, AdminController.userSuporte);
 router.post("/cadastrarSup/add", eAdmin, AdminController.cadUserSuporte);
 router.get("/suporte/all", eAdmin, AdminController.suporteAll);
 router.get("/suporte/deletar/:id", eAdmin, AdminController.deletarSuporte);
+router.get("/suporte/resolvidas", eAdmin, AdminController.resolvidas);
+router.get("/suporte/pendentes", eAdmin, AdminController.pendentes);
 
 //Rotas de Usuário Administrador
 router.get("/novo", eAdmin, AdminController.userAdmin);
