@@ -1,32 +1,22 @@
-{{#each chamadas}}
-
-{{#if resolvida}}
 <h2> Chamadas Resolvidas! </h2>
 <hr>
 
+{{#each chamadas}}
+
 <div class="card mt-4">
   <div class="card-body">
     <h4>{{titulo}}</h4><br>
     <small> Status: {{status}} </small> <br>
     <small>Data de criação: {{data}}</small> <br>
+
+    <a href="/suporte/chamadas/filtroChamada/{{_id}}"> <button type="submit" class="btn btn-success mt-2"> Ver chamada
+      </button></a>
+
   </div>
 </div>
-{{/if}}
-
-{{#if pendente}}
-
-<h2> Chamadas Pendentes! </h2>
-<hr>
-<div class="card mt-4">
-  <div class="card-body">
-    <h4>{{titulo}}</h4><br>
-    <small> Status: {{status}} </small> <br>
-    <small>Data de criação: {{data}}</small> <br>
-  </div>
-</div>
-{{/if}}
 
 {{else}}
+
 <h4 class="mt-4"> Nenhuma chamada para exibir.</h4>
 
 {{/each}}
