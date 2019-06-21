@@ -10,7 +10,7 @@ const ColabController = require("../controllers/ColabController");
 router.get("/indexC", eColab, ColabController.index);
 
 //Rotas de Colaborador
-router.post("/cadastrar/add", eColab, ColabController.cadastrarColab);
+router.post("/cadastrar/add", ColabController.cadastrarColab);
 
 //Rotas de Chamadas
 router.get("/chamada/add", eColab, ColabController.addChamada);
