@@ -5,6 +5,9 @@ const router = express.Router();
 //Controller da Index
 const IndexController = require("../controllers/IndexController");
 
+//Perfil
+router.get("/perfil", IndexController.perfil);
+
 //Rotas Públicas
 router.get("/", IndexController.index);
 router.get("/login", IndexController.login);

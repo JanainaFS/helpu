@@ -1,4 +1,7 @@
 const passport = require("passport");
+const mongoose = require("mongoose");
+require("../models/Usuario");
+const Usuario = mongoose.model("usuarios");
 
 module.exports = {
   index(req, res) {
@@ -21,5 +24,8 @@ module.exports = {
   },
   cadastrar(req, res) {
     return res.render("cadastroColab");
+  },
+  perfil(req, res) {
+    return res.render("perfil", { usuario: req.user });
   }
 };

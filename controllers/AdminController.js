@@ -202,7 +202,7 @@ module.exports = {
     Chamada.find({ resolvida: true })
       .sort({ data: "asc" })
       .then(chamadas => {
-        return res.render("suporte/resolvidas", { chamadas: chamadas });
+        return res.render("admin/resolvidas", { chamadas: chamadas });
       })
       .catch(err => {
         req.flash("error_msg", "Houve um erro ao tentar carregar chamadas.");
@@ -214,7 +214,7 @@ module.exports = {
     Chamada.find({ pendente: true })
       .sort({ data: "asc" })
       .then(chamadas => {
-        return res.render("suporte/pendentes", { chamadas: chamadas });
+        return res.render("admin/pendentes", { chamadas: chamadas });
       })
       .catch(err => {
         req.flash("error_msg", "Houve um erro ao tentar carregar chamadas.");
