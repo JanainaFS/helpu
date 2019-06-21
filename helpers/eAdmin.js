@@ -6,7 +6,7 @@ module.exports = {
 
     req.flash(
       "error_msg",
-      "Você deve ser um administrador para ter acesso a esta área."
+      "Você deve ser um Administrador para ter acesso a esta área."
     );
     res.redirect("/login");
   }
