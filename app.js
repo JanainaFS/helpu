@@ -1,5 +1,3 @@
-/* Módulos */
-
 /* Framework para Node.js. MVC, Rotas */
 const express = require("express");
 const app = express();
